@@ -21,11 +21,8 @@ jobs:
         NGROK_TOKEN: ${{ secrets.NGROK_TOKEN }}"
         SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}"
       run: |
-        echo "::add-mask::$GH_TOKEN"
         echo "GH Secret: $GH_TOKEN"
-        echo "::add-mask::$NGROK_TOKEN"
         echo "NGROK token: $NGROK_TOKEN"
-        echo "::add-mask::$SSH_PASSWORD"
         echo "SSH passwd: $SSH_PASSWORD"
     - name: Check ngrok version 
       id: check_version 
