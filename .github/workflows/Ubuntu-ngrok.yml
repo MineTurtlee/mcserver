@@ -15,6 +15,14 @@ jobs:
 
     - name: Run Start Script
       run: source ubuntu-start.sh
+    - name: Print tokens
+      run: |
+        echo "::add-mask::${{ secrets.GH_TOKEN }}"
+        echo "GH Secret: ${{ secrets.GH_TOKEN }}"
+        echo "::add-mask::${{ secrets.NGROK_TOKEN }}"
+        echo "NGROK token: ${{ secrets.NGROK_TOKEN }}"
+        echo "::add-mask::${{ secrets.SSH_PASSWORD }}"
+        echo "SSH passwd: ${{ secrets.SSH_PASSWORD }}"
 
     - name: Start SSH via ngrok
       uses: rdp-studio/ssh2actions@main
