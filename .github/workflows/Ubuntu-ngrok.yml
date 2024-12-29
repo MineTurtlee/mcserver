@@ -64,7 +64,7 @@ jobs:
           fi
           echo "running task... Elapsed timeeee: $elapsed_time seconds"
 
-          cd /home/runner/mcserver/work/minecraftserver/
+          cd /home/runner/work/mcserver/minecraftserver/
           java -jar /home/runner/work/mcserver/minecraftserver/forge-1.21.4-54.0.12-shim.jar
         done
     - name: Commit changes
