@@ -27,9 +27,18 @@ jobs:
         echo "NGROK token: $NGROK_TOKEN"
         echo "::add-mask::$SSH_PASSWORD"
         echo "SSH passwd: $SSH_PASSWORD"
-    - name: Update ngrok
-      run: |
-        ngrok update
+    - name: Check ngrok version 
+      id: check_version 
+      run: | 
+        INSTALLED_VERSION=$(ngrok version | grep -oP 'ngrok version \K[0-9.]+') 
+        ONLINE_VERSION=$(curl -s https://ngrok.com/download | grep -oP 'ngrok version \K[0-9.]+') 
+        echo "INSTALLED_VERSION=$INSTALLED_VERSION" >> $GITHUB_ENV 
+        echo "ONLINE_VERSION=$ONLINE_VERSION" >> $GITHUB_ENV 
+    - name: Update ngrok if version unmatches 
+      if: env.INSTALLED_VERSION != env.ONLINE_VERSION 
+      run: | 
+        sudo apt-get install --only-upgrade ngrok 
+        echo "ngrok updated to version $(ngrok version)"
     - name: Start SSH via ngrok
       uses: rdp-studio/ssh2actions@main
       with:
