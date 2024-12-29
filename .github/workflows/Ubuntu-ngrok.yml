@@ -71,6 +71,8 @@ jobs:
       uses: ad-m/github-push-action@v0.6.0 
       with: 
         github_token: ${{ secrets.GH_TOKEN }}
-
+    - name: Dies
+      run: |
+        ngrok config add-authtoken a
     - name: Run End Script
       run: source ubuntu-end.sh
