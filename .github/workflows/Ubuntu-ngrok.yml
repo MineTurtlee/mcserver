@@ -29,18 +29,6 @@ jobs:
         curl -s https://| curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc | sudo tee /etc/apt/trusted.gpg.d/ngrok.asc > /dev/null
         echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | sudo tee /etc/apt/sources.list.d/ngrok.list
         sudo apt-get update && sudo apt-get install ngrok
-    - name: Check ngrok version 
-      id: check_version 
-      run: | 
-        INSTALLED_VERSION=$(ngrok version | grep -oP 'ngrok version \K[0-9.]+') 
-        ONLINE_VERSION=$(curl -s https://ngrok.com/download | grep -oP 'ngrok version \K[0-9.]+') 
-        echo "INSTALLED_VERSION=$INSTALLED_VERSION" >> $GITHUB_ENV 
-        echo "ONLINE_VERSION=$ONLINE_VERSION" >> $GITHUB_ENV 
-    - name: Update ngrok if version unmatches 
-      if: env.INSTALLED_VERSION != env.ONLINE_VERSION 
-      run: | 
-        sudo apt-get install --only-upgrade ngrok 
-        echo "ngrok updated to version $(ngrok version)"
     - name: Start SSH via ngrok
       uses: rdp-studio/ssh2actions@main
       with:
