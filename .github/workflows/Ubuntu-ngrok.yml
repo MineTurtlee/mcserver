@@ -50,8 +50,8 @@ jobs:
         java-version: '21'
     - name: Start timer
       run: |
-        ls /home/runner/work/mcserver
-        cd /home/runner/work/mcserver/minecraftserver/
+        ls /home/runner/work/mcserver/mcserver
+        cd /home/runner/work/mcserver/mcserver/minecraftserver/
         echo "Start time: $(date +%s) > start_time.txt"
     - name: Run task
       run: |
@@ -65,8 +65,8 @@ jobs:
           fi
           echo "running task... Elapsed timeeee: $elapsed_time seconds"
 
-          cd /home/runner/work/mcserver/minecraftserver/
-          java -jar /home/runner/work/mcserver/minecraftserver/forge-1.21.4-54.0.12-shim.jar
+          cd /home/runner/work/mcserver/mcserver/minecraftserver/
+          java -jar /home/runner/work/mcserver/mcserver/minecraftserver/forge-1.21.4-54.0.12-shim.jar
         done
     - name: Commit changes
       run: | 
