@@ -30,7 +30,7 @@ jobs:
         echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | sudo tee /etc/apt/sources.list.d/ngrok.list
         sudo apt update && sudo apt install ngrok
     - name: Start SSH via ngrok
-      uses: rdp-studio/ssh2actions@main
+      uses: MineTurtlee/ssh2actions@main
       with:
         mode: ngrok
       env:
