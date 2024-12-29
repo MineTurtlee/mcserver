@@ -4,6 +4,8 @@ name: Ubuntu (ngrok)
 
 on:
   push:
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
