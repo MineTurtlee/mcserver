@@ -33,16 +33,21 @@ jobs:
         curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc | sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null
         echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | sudo tee /etc/apt/sources.list.d/ngrok.list
         sudo apt update && sudo apt install ngrok
-    - name: Start SSH via ngrok
-      uses: MineTurtlee/ssh2actions@main
-      with:
-        mode: ngrok
-      env:
-        NGROK_TOKEN: ${{ secrets.NGROK_TOKEN }}
-        NGROK_REGION: jp
-        SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
-        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+    - name: Start ngrok bruh
+      run: |
+        ngrok tcp 25565 \
+        --region jp \
+        --authtoken ${{ secrets.NGROK_TOKEN }}
+    # - name: Start SSH via ngrok
+     # uses: MineTurtlee/ssh2actions@main
+      # with:
+        # mode: ngrok
+      # env:
+        # NGROK_TOKEN: ${{ secrets.NGROK_TOKEN }}
+        # NGROK_REGION: jp
+        # SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
+        # TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        # TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
     - name: Update Java
       uses: actions/setup-java@v2
       with:
