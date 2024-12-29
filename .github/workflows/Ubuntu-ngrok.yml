@@ -50,11 +50,12 @@ jobs:
         java-version: '21'
     - name: Start timer
       run: |
-        ls /home/runner/work/mcserver/mcserver
+        ls /home/runner/work/mcserver/mcserver/
         cd /home/runner/work/mcserver/mcserver/minecraftserver/
-        echo "Start time: $(date +%s) > start_time.txt"
+        echo "Start time: $(date +%s) > //home/runner/mcserver/mcserver/minecraftserver/start_time.txt"
     - name: Run task
       run: |
+        ls /home/runner/mcserver/mcserver/minecraftserver
         cd /home/runner/mcserver/mcserver/minecraftserver
         while true; do
           current_time=$(date +%s)
