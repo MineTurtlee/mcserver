@@ -50,6 +50,7 @@ jobs:
         java-version: '21'
     - name: Start timer
       run: |
+        cd /home/runner/mcserver/minecraft-server/
         echo "Start time: $(date +%s) > start_time.txt"
     - name: Run task
       run: |
