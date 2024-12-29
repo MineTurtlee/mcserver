@@ -60,7 +60,7 @@ jobs:
           echo "running task... Elapsed timeeee: $elapsed_time seconds"
 
           java -jar /home/runner/mcserver/minecraftserver/forge-1.21.4-54.0.12-shim.jar
-          
+        done
     - name: Commit changes
       run: | 
         git config --global user.name 'github-actions[bot]' 
