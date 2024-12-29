@@ -1,6 +1,6 @@
 # https://github.com/rdp-studio/ActionsVM
 
-name: Ubuntu_Ngrok
+name: Ubuntu (ngrok)
 
 on:
   push:
@@ -47,7 +47,6 @@ jobs:
       with:
         distribution: 'adopt'
         java-version: '21'
-    - name: 
     - name: Commit changes
       run: | 
         git config --global user.name 'github-actions[bot]' 
