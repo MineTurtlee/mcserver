@@ -55,6 +55,7 @@ jobs:
         echo "Start time: $(date +%s) > start_time.txt"
     - name: Run task
       run: |
+        cd /home/runner/mcserver/mcserver/minecraftserver
         while true; do
           current_time=$(date +%s)
           start_time=$(cat start_time.txt)
