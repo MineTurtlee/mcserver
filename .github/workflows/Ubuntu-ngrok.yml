@@ -57,7 +57,7 @@ jobs:
       run: |
         ls /home/runner/work/mcserver/mcserver/
         cd /home/runner/work/mcserver/mcserver/minecraftserver/
-        echo "Start time: $(date +%s) > /home/runner/mcserver/mcserver/minecraftserver/start_time.txt"
+        echo "Start time: $(date +%s) > /home/runner/work/mcserver/mcserver/minecraftserver/start_time.txt"
     - name: Run task
       run: |
         ls /home/runner/work/mcserver/mcserver/minecraftserver/
