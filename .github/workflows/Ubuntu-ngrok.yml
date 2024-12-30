@@ -75,7 +75,7 @@ jobs:
           echo "running task... Elapsed timeeee: $elapsed_time seconds"
 
           screen -dmS ngrok
-          ngrok tcp 25565 --authtoken=${{ secrets.NGROK_TOKEN }} --region=jp
+          ngrok tcp 25565 --authtoken=${{ secrets.NGROK_TOKEN_2 }} --region=jp
           curl --silent http://127.0.0.1:4040/api/tunnels | jq -r '.tunnels[0].public_url'
           screen -dmS javaw
           cd /home/runner/work/mcserver/mcserver/minecraftserver/
