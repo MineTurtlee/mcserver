@@ -66,7 +66,6 @@ jobs:
       run: |
         ls /home/runner/work/mcserver/mcserver/minecraftserver/
         cd /home/runner/work/mcserver/mcserver/minecraftserver
-        chmod +x home/runner/work/mcserver/mcserver/Files.sh
         ngrok http --url=teal-fitting-malamute.ngrok-free.app 25565 --authtoken=${{ secrets.NGROK_TOKEN_2 }} --region=jp &
         Green_font_prefix="\033[32m"
         Red_font_prefix="\033[31m"
