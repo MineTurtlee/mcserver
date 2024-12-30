@@ -79,7 +79,6 @@ jobs:
           screen -dmS ngrok
           chmod +x home/runner/work/mcserver/mcserver/Files.sh
           ngrok http --url=teal-fitting-malamute.ngrok-free.app 25565 --authtoken=${{ secrets.NGROK_TOKEN_2 }} --region=jp &
-          sleep 15
           Green_font_prefix="\033[32m"
           Red_font_prefix="\033[31m"
           Green_background_prefix="\033[42;37m"
@@ -94,11 +93,11 @@ jobs:
 
           if [[ -e "${LOG_FILE}" && -z "${ERRORS_LOG}" ]]; then
               SSH_CMD="$(grep -oE "tcp://(.+)" ${LOG_FILE} | sed "s/tcp:\/\//ssh ${USER}@/" | sed "s/:/ -p /")"
-              MSG="
-          *GitHub Actions - ngrok session info:*
+              MSG=" \
+          *GitHub Actions - ngrok session info:* \
 
-          ⚡ *CLI:*
-          \`${SSH_CMD}\`
+          ⚡ *CLI:* \
+          \`${SSH_CMD}\`"
 
           screen -dmS javaw
           cd /home/runner/work/mcserver/mcserver/minecraftserver/
