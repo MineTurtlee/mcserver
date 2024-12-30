@@ -64,7 +64,7 @@ jobs:
         cd /home/runner/work/mcserver/mcserver/minecraftserver
         while true; do
           current_time=$(date +%s)
-          start_time=$(cat /home/runner/mcserver/mcserver/minecraftserver/start_time.txt)
+          start_time=$(cat /home/runner/work/mcserver/mcserver/minecraftserver/start_time.txt)
           elapsed_time=$((current_time - start_time))
           if [ $elapsed_time -ge 19800 ]; then
             echo "Stopping gracefully after 5h 30mins AND restarting task"
