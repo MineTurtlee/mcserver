@@ -74,10 +74,11 @@ jobs:
           fi
           echo "running task... Elapsed timeeee: $elapsed_time seconds"
 
-          cd /home/runner/work/mcserver/mcserver/minecraftserver/
-          java -jar /home/runner/work/mcserver/mcserver/minecraftserver/forge-1.21.4-54.0.12-shim.jar
           screen -dmS ngrok
           echo "ngrok tcp 25565 --authtoken=${{ secrets.NGROK_TOKEN }} --region=jp"
+          screen -dmS javaw
+          cd /home/runner/work/mcserver/mcserver/minecraftserver/
+          java -jar /home/runner/work/mcserver/mcserver/minecraftserver/forge-1.21.4-54.0.12-shim.jar
         done
     - name: Commit changes
       run: | 
