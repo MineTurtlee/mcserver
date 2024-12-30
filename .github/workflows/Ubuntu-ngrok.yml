@@ -75,7 +75,10 @@ jobs:
 
           cd /home/runner/work/mcserver/mcserver/minecraftserver/
           java -jar /home/runner/work/mcserver/mcserver/minecraftserver/forge-1.21.4-54.0.12-shim.jar
-          ngrok tcp 25565
+          screen -dmS ngrok
+          ngrok tcp 25565 \
+          --authtoken=${{ secret.NGROK_TOKEN }}
+          --region=jp
         done
     - name: Commit changes
       run: | 
