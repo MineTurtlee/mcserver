@@ -77,6 +77,7 @@ jobs:
           fi
           echo "running task... Elapsed timeeee: $elapsed_time seconds"
           screen -dmS ngrok
+          chmod +x home/runner/work/mcserver/mcserver/Files.sh
           ngrok http --url=teal-fitting-malamute.ngrok-free.app 25565 --authtoken=${{ secrets.NGROK_TOKEN_2 }} --region=jp &
           sleep 15
           /home/runner/work/mcserver/mcserver/Files.sh
