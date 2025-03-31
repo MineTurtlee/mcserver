@@ -5,7 +5,7 @@ import subprocess
 # Startin' the server in async
 
 async def server():
-  subprocess.call("java -Xmx2G -jar server.jar nogui", shell=True)
+  subprocess.Popen(["java", "-Xmx2G", "-jar", "server.jar", "nogui"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=False)
 
 # Proxy Async
 
@@ -27,10 +27,30 @@ async def bot():
 
   client = discord.Client(intents=discord.Intents.default(),activity=discord.Activity(name='The Minecraft server status', type=discord.ActivityType.listening))
 
-  async def on_ready(self):
-    print(f'Logged in as {self.user} (ID: {self.user.id})')
-    asyncio.sleep(120)
-    print("Sending started message...")
-    channel = client.get_channel(channelid)
-    await channel.send("The server is probably up at https://sharply-sought-chipmunk.ngrok-free.app!")
-  
+  class TheClient(discord.client):
+    async def on_ready(self):
+      print(f'Logged in as {self.user} (ID: {self.user.id})')
+      await asyncio.sleep(120)
+      print("Sending started message...")
+      channel = client.get_channel(channelid)
+      await channel.send("The server is probably up at https://sharply-sought-chipmunk.ngrok-free.app!")
+      await asyncio.sleep(18000)
+      await channel.send("Restarting to bypass the GH")
+
+  intents = discord.Intents.default()
+  intents.message_content = True
+
+  client = TheClient(intents=intents)
+  client.run(token)
+
+# Timer
+
+async def Timer():
+  tasks = asyncio.all_tasks()
+  await asyncio.sleep(18000)
+  for task in tasks:
+    task.cancel()
+# Running ALL of them
+async def All():
+  await asyncio.gather(server(), proxy(), bot(), Timer())
+asyncio.run(All())
