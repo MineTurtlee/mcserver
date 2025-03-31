@@ -10,12 +10,12 @@ async def server():
 # Proxy Async
 
 async def proxy():
-  process = await asyncio.create_subprocess_exec("ngrok", "http", "--url=sharply-sought-chipmunk.ngrok-free.app", "25565", shell=False)
+  serverlink = os.getenv('SL')
+  process = await asyncio.create_subprocess_exec("ngrok", "http", f'--url={serverlink}', "25565", shell=False)
   return process
 # Bot Async
 
 async def bot():
-  import asyncio
   import discord
   from   discord import errors
   import os
@@ -32,9 +32,9 @@ async def bot():
   class TheClient(discord.Client):
     @client.event
     async def on_ready(self):
-      print(f'Logged in as {self.user} (ID: {self.user.id})')
+      logging.info(f'Logged in as {self.user} (ID: {self.user.id})')
       await asyncio.sleep(120)
-      print("Sending started message...")
+      logging.info("Sending started message...")
       channel = client.get_channel(int(channelid))
       if channel:
         await channel.send(f'The server is probably up at {serverlink}!')
@@ -54,14 +54,14 @@ async def Timer(server_process, proxy_process):
   await asyncio.sleep(18000)
   # Stop!!
   
-  print("Sending stop command to Minecraft server...")
+  logging.info("Sending stop command to Minecraft server...")
   server_process.stdin.write(b"stop\n")
   server_process.stdin.flush()
   # Kill proxy
-  print("Terminating ngrok proxy...")
+  logging.info("Terminating ngrok proxy...")
   proxy_process.terminate()
-  proxy_process.wait()
-  print("All services have been stopped gracefully.")
+  await proxy_process.wait()
+  logging.info("All services have been stopped gracefully.")
 # Running ALL of them
 async def All():
   server_process = await asyncio.create_task(server())
