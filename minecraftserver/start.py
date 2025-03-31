@@ -2,6 +2,7 @@ import asyncio
 import time
 import subprocess
 import logging
+import os
 
 # Startin' the server in async
 
@@ -19,7 +20,6 @@ async def proxy():
 async def bot():
   import discord
   from   discord import errors
-  import os
   import certifi
   
   token = os.getenv('Bot_Token')
