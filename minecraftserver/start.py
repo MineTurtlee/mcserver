@@ -10,7 +10,7 @@ async def server():
     try:
         process = await asyncio.create_subprocess_exec(
             "java", "-Xmx2G", "-jar", "server.jar", "nogui",
-            stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=False
+            stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True
         )
         return process
         print("Minecraft:" + process.stdout)
