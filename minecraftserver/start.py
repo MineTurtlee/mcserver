@@ -5,15 +5,18 @@ import logging
 import os
 import aiohttp
 
+logging.basicConfig(level=logging.INFO)
+
 # Startin' the server in async
 async def server():
     try:
         process = await asyncio.create_subprocess_exec(
             "java", "-Xmx2G", "-jar", "server.jar", "nogui",
-            stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True
+            stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=False
         )
+        asyncio.create_task(log_output(process.stdout, "Minecraft"))
+        asyncio.create_task(log_output(process.stderr, "Minecraft Error"))
         return process
-        print("Minecraft:" + process.stdout)
     except Exception as e:
         logging.error(f"Failed to start server process: {e}")
         return None
@@ -22,14 +25,24 @@ async def server():
 async def proxy():
     try:
         process = await asyncio.create_subprocess_exec(
-            "ngrok", "tcp", "7272", stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True
+            "ngrok", "tcp", "7272",
+            stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=False
         )
         await asyncio.sleep(5)  # Give ngrok time to initialize
+        asyncio.create_task(log_output(process.stdout, "NGROK"))
+        asyncio.create_task(log_output(process.stderr, "NGROK Error"))
         return process
-        print("NGROK:" + process.stdout)
     except Exception as e:
         logging.error(f"Failed to start proxy process: {e}")
         return None
+
+async def log_output(stream, prefix):
+    while True:
+        line = await stream.readline()
+        if line:
+            logging.info(f"{prefix}: {line.decode().strip()}")
+        else:
+            break
 
 async def get_ngrok_tunnel_url():
     async with aiohttp.ClientSession() as session:
