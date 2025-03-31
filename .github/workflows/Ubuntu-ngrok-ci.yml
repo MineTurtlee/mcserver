@@ -34,39 +34,10 @@ jobs:
         curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc | sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null
         echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | sudo tee /etc/apt/sources.list.d/ngrok.list
         sudo apt update && sudo apt install ngrok
-    - name: Start SSH via ngrok
-      uses: MineTurtlee/ssh2actions@main
-      with:
-        mode: ngrok
-      env:
-        NGROK_TOKEN: ${{ secrets.NGROK_TOKEN }}
-        NGROK_REGION: jp
-        SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
-        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-    - name: Update Java
-      uses: actions/setup-java@v2
-      with:
-        distribution: 'adopt'
-        java-version: '21'
-    - name: Start timer
+    - name: Run script
       run: |
-        echo "Start time: $(date +%s) > start_time.txt"
-    - name: Run task
-      run: |
-        while true; do
-          current_time=$(date +%s)
-          start_time=$(cat start_time.txt)
-          elapsed_time=$((current_time - start_time))
-          if [ $elapsed_time -ge 19800 ]; then
-            echo "Stopping gracefully after 5h 30mins AND restarting task"
-            break
-          fi
-          echo "running task... Elapsed timeeee: $elapsed_time seconds"
-
-          cd /home/runner/mcserver/minecraftserver/
-          java -jar /home/runner/mcserver/minecraftserver/forge-1.21.4-54.0.12-shim.jar
-        done
+        cd ${{ GITHUB.WORKSPACE }}
+        python3 start.py
     - name: Commit changes
       run: | 
         git config --global user.name 'github-actions[bot]' 
