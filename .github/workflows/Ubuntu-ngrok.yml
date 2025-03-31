@@ -19,7 +19,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@main
     - name: Update Java
-      runs: sudo apt install java
+      run: sudo apt install java
     - name: Run Start Script
       run: source ubuntu-start.sh
     - name: Print tokens
