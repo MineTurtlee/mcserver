@@ -23,6 +23,7 @@ async def bot():
   
   token = os.getenv('Bot_Token')
   channelid= os.getenv('Channel_ID')
+  serverlink = os.getenv('SL')
 
   os.environ["SSL_CERT_FILE"] = certifi.where()
 
@@ -34,11 +35,12 @@ async def bot():
       print(f'Logged in as {self.user} (ID: {self.user.id})')
       await asyncio.sleep(120)
       print("Sending started message...")
-      channel = client.get_channel(channelid)
-      await channel.send("The server is probably up at https://sharply-sought-chipmunk.ngrok-free.app!")
-      await asyncio.sleep(18000)
-      await channel.send("Restarting to bypass the GH")
-      await client.close()
+      channel = client.get_channel(int(channelid))
+      if channel:
+        await channel.send(f'The server is probably up at {serverlink}!')
+        await asyncio.sleep(18000)
+        await channel.send("Restarting to bypass the GH")
+        await client.close()
 
   intents = discord.Intents.default()
   intents.message_content = True
