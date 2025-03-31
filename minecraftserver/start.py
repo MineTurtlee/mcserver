@@ -15,6 +15,7 @@ async def proxy():
 # Bot Async
 
 async def bot():
+  import asyncio
   import discord
   from   discord import errors
   import os
