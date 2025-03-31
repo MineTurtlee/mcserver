@@ -23,7 +23,7 @@ async def proxy():
     try:
         serverlink = os.getenv('SL')
         process = await asyncio.create_subprocess_exec(
-            "ngrok", "http", f'--url={serverlink}', "25565", shell=False
+            "ngrok", "tcp", "25565", shell=False
         )
         return process
     except Exception as e:
