@@ -5,12 +5,12 @@ import subprocess
 # Startin' the server in async
 
 async def server():
-  process = asyncio.create_subprocess_exec("java", "-Xmx2G", "-jar", "server.jar", "nogui", stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=False)
+  process = await asyncio.create_subprocess_exec("java", "-Xmx2G", "-jar", "server.jar", "nogui", stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=False)
   return process
 # Proxy Async
 
 async def proxy():
-  process = asyncio.create_subprocess_exec("ngrok", "http", "--url=sharply-sought-chipmunk.ngrok-free.app", "25565", shell=False)
+  process = await asyncio.create_subprocess_exec("ngrok", "http", "--url=sharply-sought-chipmunk.ngrok-free.app", "25565", shell=False)
   return process
 # Bot Async
 
