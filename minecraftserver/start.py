@@ -13,7 +13,7 @@ async def server():
             stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=False
         )
         return process
-        print("Minecraft:" + stdout)
+        print("Minecraft:" + process.stdout)
     except Exception as e:
         logging.error(f"Failed to start server process: {e}")
         return None
@@ -26,7 +26,7 @@ async def proxy():
         )
         await asyncio.sleep(5)  # Give ngrok time to initialize
         return process
-        print("NGROK:" + stdout)
+        print("NGROK:" + process.stdout)
     except Exception as e:
         logging.error(f"Failed to start proxy process: {e}")
         return None
