@@ -47,7 +47,7 @@ async def bot():
   intents.message_content = True
 
   client = TheClient(intents=intents)
-  client.start(token)
+  await client.start(token)
 
 # Timer
 
