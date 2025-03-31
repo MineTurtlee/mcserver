@@ -5,13 +5,13 @@ import subprocess
 # Startin' the server in async
 
 async def server():
-  subprocess.Popen(["java", "-Xmx2G", "-jar", "server.jar", "nogui"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=False)
-
+  process = subprocess.Popen(["java", "-Xmx2G", "-jar", "server.jar", "nogui"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=False)
+  return process
 # Proxy Async
 
 async def proxy():
-  subprocess.call("ngrok http --url=sharply-sought-chipmunk.ngrok-free.app 25565", shell=True)
-
+  process = subprocess.Popen(["ngrok", "http", "--url=sharply-sought-chipmunk.ngrok-free.app", "25565"], shell=False)
+  return process
 # Bot Async
 
 async def bot():
@@ -27,7 +27,8 @@ async def bot():
 
   client = discord.Client(intents=discord.Intents.default(),activity=discord.Activity(name='The Minecraft server status', type=discord.ActivityType.listening))
 
-  class TheClient(discord.client):
+  class TheClient(discord.Client):
+    @client.event
     async def on_ready(self):
       print(f'Logged in as {self.user} (ID: {self.user.id})')
       await asyncio.sleep(120)
@@ -36,21 +37,31 @@ async def bot():
       await channel.send("The server is probably up at https://sharply-sought-chipmunk.ngrok-free.app!")
       await asyncio.sleep(18000)
       await channel.send("Restarting to bypass the GH")
+      await client.close()
 
   intents = discord.Intents.default()
   intents.message_content = True
 
   client = TheClient(intents=intents)
-  client.run(token)
+  client.start(token)
 
 # Timer
 
-async def Timer():
-  tasks = asyncio.all_tasks()
+async def Timer(server_process, proxy_process):
   await asyncio.sleep(18000)
-  for task in tasks:
-    task.cancel()
+  # Stop!!
+  
+  print("Sending stop command to Minecraft server...")
+  server_process.stdin.write(b"stop\n")
+  server_process.stdin.flush()
+  # Kill proxy
+  print("Terminating ngrok proxy...")
+  proxy_process.terminate()
+  proxy_process.wait()
+  print("All services have been stopped gracefully.")
 # Running ALL of them
 async def All():
-  await asyncio.gather(server(), proxy(), bot(), Timer())
+  server_process = await asyncio.create_task(server())
+  proxy_process = await asyncio.create_task(proxy())
+  await asyncio.gather(bot(), Timer(server_process, proxy_process))
 asyncio.run(All())
