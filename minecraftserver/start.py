@@ -22,7 +22,7 @@ async def server():
 async def proxy():
     try:
         process = await asyncio.create_subprocess_exec(
-            "ngrok", "tcp", "7272", stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=False
+            "ngrok", "tcp", "7272", stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True
         )
         await asyncio.sleep(5)  # Give ngrok time to initialize
         return process
