@@ -41,6 +41,7 @@ jobs:
       env:
         Bot_Token: ${{ secrets.BOT_TOKEN }}
         Channel_ID: ${{ secrets.CHANNEL_ID }}
+        SL: ${{ secrets.SERVER_LINK }}
       run: |
         cd ${{ GITHUB.WORKSPACE }}/minecraftserver
         python3 start.py
