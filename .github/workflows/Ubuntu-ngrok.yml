@@ -12,6 +12,8 @@ on:
 jobs:
   Instance:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
     - name: Checkout
@@ -33,7 +35,11 @@ jobs:
         curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc | sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null
         echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | sudo tee /etc/apt/sources.list.d/ngrok.list
         sudo apt update && sudo apt install ngrok
+    - name: Add ngrok authtoken
+      run: ngrok config add-authtoken ${{ secrets.NGROK_TOKEN }}
     - name: Run script
+      env:
+        Bot_Token: ${{ secrets.BOT_TOKEN }}
       run: |
         cd ${{ GITHUB.WORKSPACE }}/minecraftserver
         python3 start.py
@@ -43,10 +49,7 @@ jobs:
         git config --global user.email 'github-actions[bot]@users.noreply.github.com' 
         git add . 
         git commit -m "Finish Minecraft world save;;?"
-    - name: Push changes 
-      uses: ad-m/github-push-action@v0.6.0 
-      with: 
-        github_token: ${{ secrets.GH_TOKEN }}
+        git push
     - name: Dies
       run: |
         ngrok config add-authtoken a
