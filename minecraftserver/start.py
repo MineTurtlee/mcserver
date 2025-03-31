@@ -18,34 +18,35 @@ async def proxy():
 # Bot Async
 
 async def bot():
-async def bot():
-    import discord
-    from discord import errors
-    import certifi
+  import discord
+  from   discord import errors
+  import certifi
+  
+  token = os.getenv('Bot_Token')
+  channelid= os.getenv('Channel_ID')
+  serverlink = os.getenv('SL')
 
-    token = os.getenv('Bot_Token')
-    channelid = os.getenv('Channel_ID')
-    serverlink = os.getenv('SL')
+  os.environ["SSL_CERT_FILE"] = certifi.where()
 
-    os.environ["SSL_CERT_FILE"] = certifi.where()
+  client = discord.Client(intents=discord.Intents.default(),activity=discord.Activity(name='The Minecraft server status', type=discord.ActivityType.listening))
 
-    intents = discord.Intents.default()
-    intents.message_content = True
+  class TheClient(discord.Client):
+    async def on_ready(self):
+      logging.info(f'Logged in as {self.user} (ID: {self.user.id})')
+      await asyncio.sleep(120)
+      logging.info("Sending started message...")
+      channel = client.get_channel(int(channelid))
+      if channel:
+        await channel.send(f'The server is probably up at {serverlink}!')
+        await asyncio.sleep(18000)
+        await channel.send("Restarting to bypass the GH")
+        await client.close()
 
-    class TheClient(discord.Client):
-        async def on_ready(self):
-            logging.info(f'Logged in as {self.user} (ID: {self.user.id})')
-            await asyncio.sleep(120)
-            logging.info("Sending started message...")
-            channel = self.get_channel(int(channelid))
-            if channel:
-                await channel.send(f'The server is probably up at {serverlink}!')
-                await asyncio.sleep(18000)
-                await channel.send("Restarting to bypass the GH")
-                await self.close()
+  intents = discord.Intents.default()
+  intents.message_content = True
 
-    client = TheClient(intents=intents)
-    await client.start(token)
+  client = TheClient(intents=intents)
+  await client.start(token)
 
 # Timer
 
