@@ -41,8 +41,11 @@ jobs:
     - name: Run script
       env:
         Bot_Token: ${{ secrets.BOT_TOKEN }}
+        Channel_ID: ${{ secrets.CHANNEL_ID }}
+        SL: ${{ secrets.SERVER_LINK }}
       run: |
         cd ${{ GITHUB.WORKSPACE }}/minecraftserver
+        pip install discord
         python3 start.py
     - name: Commit changes
       run: | 
