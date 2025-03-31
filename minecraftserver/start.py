@@ -71,7 +71,7 @@ async def bot(tunnel_url):
                 channel = self.get_channel(int(channelid))
                 if channel:
                     await channel.send(f'The server is probably up at {tunnel_url}!')
-                    await asyncio.sleep(18000)
+                    await asyncio.sleep(10755)
                     await channel.send("Restarting to bypass the GH")
                     await self.close()
 
@@ -88,7 +88,7 @@ async def bot(tunnel_url):
 
 # Timer
 async def Timer(server_process, proxy_process):
-    await asyncio.sleep(18000)
+    await asyncio.sleep(10800)
     # Stop!!
     logging.info("Sending stop command to Minecraft server...")
     if server_process:
