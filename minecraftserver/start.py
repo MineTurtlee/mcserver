@@ -3,9 +3,9 @@ import time
 import subprocess
 import logging
 import os
+import aiohttp
 
 # Startin' the server in async
-
 async def server():
     try:
         process = await asyncio.create_subprocess_exec(
@@ -18,21 +18,26 @@ async def server():
         return None
 
 # Proxy Async
-
 async def proxy():
     try:
-        serverlink = os.getenv('SL')
         process = await asyncio.create_subprocess_exec(
-            "ngrok", "tcp", "25565", shell=False
+            "ngrok", "tcp", "25565", stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=False
         )
+        await asyncio.sleep(5)  # Give ngrok time to initialize
         return process
     except Exception as e:
         logging.error(f"Failed to start proxy process: {e}")
         return None
 
-# Bot Async
+async def get_ngrok_tunnel_url():
+    async with aiohttp.ClientSession() as session:
+        async with session.get('http://localhost:4040/api/tunnels') as response:
+            data = await response.json()
+            tunnel_url = data['tunnels'][0]['public_url']
+            return tunnel_url
 
-async def bot():
+# Bot Async
+async def bot(tunnel_url):
     try:
         import discord
         from discord import errors
@@ -40,26 +45,20 @@ async def bot():
 
         token = os.getenv('Bot_Token')
         channelid = os.getenv('Channel_ID')
-        serverlink = os.getenv('SL')
 
         os.environ["SSL_CERT_FILE"] = certifi.where()
-
-        client = discord.Client(
-            intents=discord.Intents.default(),
-            activity=discord.Activity(name='The Minecraft server status', type=discord.ActivityType.listening)
-        )
 
         class TheClient(discord.Client):
             async def on_ready(self):
                 logging.info(f'Logged in as {self.user} (ID: {self.user.id})')
                 await asyncio.sleep(120)
                 logging.info("Sending started message...")
-                channel = client.get_channel(int(channelid))
+                channel = self.get_channel(int(channelid))
                 if channel:
-                    await channel.send(f'The server is probably up at {serverlink}!')
+                    await channel.send(f'The server is probably up at {tunnel_url}!')
                     await asyncio.sleep(18000)
                     await channel.send("Restarting to bypass the GH")
-                    await client.close()
+                    await self.close()
 
         intents = discord.Intents.default()
         intents.message_content = True
@@ -73,11 +72,9 @@ async def bot():
         logging.error(f"An error occurred in the bot: {e}")
 
 # Timer
-
 async def Timer(server_process, proxy_process):
     await asyncio.sleep(18000)
     # Stop!!
-
     logging.info("Sending stop command to Minecraft server...")
     if server_process:
         server_process.stdin.write(b"stop\n")
@@ -93,6 +90,7 @@ async def Timer(server_process, proxy_process):
 async def All():
     server_process = await asyncio.create_task(server())
     proxy_process = await asyncio.create_task(proxy())
-    await asyncio.gather(bot(), Timer(server_process, proxy_process))
+    tunnel_url = await get_ngrok_tunnel_url()
+    await asyncio.gather(bot(tunnel_url), Timer(server_process, proxy_process))
 
 asyncio.run(All())
