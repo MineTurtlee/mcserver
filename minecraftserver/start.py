@@ -31,7 +31,6 @@ async def bot():
   client = discord.Client(intents=discord.Intents.default(),activity=discord.Activity(name='The Minecraft server status', type=discord.ActivityType.listening))
 
   class TheClient(discord.Client):
-    @client.event
     async def on_ready(self):
       logging.info(f'Logged in as {self.user} (ID: {self.user.id})')
       await asyncio.sleep(120)
