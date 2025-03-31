@@ -35,7 +35,7 @@ jobs:
         sudo apt update && sudo apt install ngrok
     - name: Run script
       run: |
-        cd ${{ GITHUB.WORKSPACE }}
+        cd ${{ GITHUB.WORKSPACE }}/minecraftserver
         python3 start.py
     - name: Commit changes
       run: | 
