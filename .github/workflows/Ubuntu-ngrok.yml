@@ -33,72 +33,10 @@ jobs:
         curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc | sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null
         echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | sudo tee /etc/apt/sources.list.d/ngrok.list
         sudo apt update && sudo apt install ngrok
-    # - name: Start ngrok bruh
-      # run: |
-      #   ngrok tcp 25565 \
-       #  --region jp \
-       #  --authtoken ${{ secrets.NGROK_TOKEN }}
-    - name: Start SSH via ngrok
-      uses: MineTurtlee/ssh2actions@main
-      with:
-        mode: ngrok
-      env:
-        NGROK_TOKEN: ${{ secrets.NGROK_TOKEN }}
-        NGROK_REGION: jp
-        SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
-        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-    - name: kill ngrok
+    - name: Run script
       run: |
-        pkill ngrok
-    - name: Update Java
-      uses: actions/setup-java@v2
-      with:
-        distribution: 'adopt'
-        java-version: '21'
-    - name: Start timer
-      run: |
-        ls /home/runner/work/mcserver/mcserver/
-        cd /home/runner/work/mcserver/mcserver/minecraftserver/
-        echo "Start time: $(date +%s) > /home/runner/work/mcserver/mcserver/minecraftserver/start_time.txt"
-        echo $(date +%s) >/home/runner/work/mcserver/mcserver/minecraftserver/start_time.txt
-    - name: Run task
-      run: |
-        ls /home/runner/work/mcserver/mcserver/minecraftserver/
-        cd /home/runner/work/mcserver/mcserver/minecraftserver
-        ngrok http --url=teal-fitting-malamute.ngrok-free.app 25565 --authtoken=${{ secrets.NGROK_TOKEN_2 }} --region=jp &
-        Green_font_prefix="\033[32m"
-        Red_font_prefix="\033[31m"
-        Green_background_prefix="\033[42;37m"
-        Red_background_prefix="\033[41;37m"
-        Font_color_suffix="\033[0m"
-        INFO="[${Green_font_prefix}INFO${Font_color_suffix}]"
-        ERROR="[${Red_font_prefix}ERROR${Font_color_suffix}]"
-        LOG_FILE='/tmp/ngrok.log'
-        TELEGRAM_LOG="/tmp/telegram.log"
-        CONTINUE_FILE="/tmp/continue"
-        ERRORS_LOG=$(grep "command failed" ${LOG_FILE})
-
-        if [[ -e "${LOG_FILE}" && -z "${ERRORS_LOG}" ]]; then
-           SSH_CMD="$(grep -oE "tcp://(.+)" ${LOG_FILE} | sed "s/tcp:\/\//ssh ${USER}@/" | sed "s/:/ -p /")"
-        echo "------------------------------------------------------------------------"
-        echo "To connect to this session copy and paste the following into a terminal:"
-        echo -e "${Green_font_prefix}$SSH_CMD${Font_color_suffix}"
-        echo "------------------------------------------------------------------------"
-          
-        java -jar /home/runner/work/mcserver/mcserver/minecraftserver/forge-1.21.4-54.0.12-shim.jar -nogui &
-        while true; do
-          current_time=$(date +%s)
-          start_time=$(cat /home/runner/work/mcserver/mcserver/minecraftserver/start_time.txt)
-          elapsed_time=$((current_time - start_time))
-          if [ $elapsed_time -ge 19800 ]; then
-            echo "Stopping gracefully after 5h 30mins AND restarting task"
-            rm -rf /home/runner/mcserver/mcserver/minecraftserver/start_time.txt
-            break
-          fi
-          echo "running task... Elapsed timeeee: $elapsed_time seconds"
-        done
-          
+        cd ${{ GITHUB.WORKSPACE }}
+        python3 start.py
     - name: Commit changes
       run: | 
         git config --global user.name 'github-actions[bot]' 
