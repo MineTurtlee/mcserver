@@ -40,6 +40,8 @@ jobs:
         sudo apt update && sudo apt install ngrok
     - name: Add ngrok authtoken
       run: ngrok config add-authtoken ${{ secrets.NGROK_TOKEN }}
+    - name: open frieawlsk
+      run: sudo ufw allow 7272/tcp
     - name: Run script
       env:
         Bot_Token: ${{ secrets.BOT_TOKEN }}
