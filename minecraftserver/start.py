@@ -66,7 +66,7 @@ async def bot(tunnel_url):
         class TheClient(discord.Client):
             async def on_ready(self):
                 logging.info(f'Logged in as {self.user} (ID: {self.user.id})')
-                await asyncio.sleep(75)
+                await asyncio.sleep(20)
                 logging.info("Sending started message...")
                 channel = self.get_channel(int(channelid))
                 if channel:
