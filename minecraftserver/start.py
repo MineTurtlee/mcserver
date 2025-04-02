@@ -5,7 +5,7 @@ import logging
 import os
 import aiohttp
 
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.DEBUG)
 
 # Startin' the server in async
 async def server():
