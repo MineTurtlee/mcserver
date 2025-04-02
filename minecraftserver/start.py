@@ -81,7 +81,7 @@ async def bot(tunnel_link):
                 channel = self.get_channel(int(channelid))
                 if channel:
                     if tunnel_link:
-                        await channel.send(f'<@&1356936657709957150> The server is probably up at {tunnel_url} !')
+                        await channel.send(f'<@&1356936657709957150> The server is probably up at {tunnel_link} !')
                     else:
                         await channel.send(f'Failed to find the Server link')
                     await asyncio.sleep(3595)
