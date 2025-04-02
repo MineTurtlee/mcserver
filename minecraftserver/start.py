@@ -4,6 +4,7 @@ import subprocess
 import logging
 import os
 import aiohttp
+import re
 
 logging.basicConfig(level=logging.INFO)
 
@@ -49,7 +50,15 @@ async def get_ngrok_tunnel_url():
         async with session.get('http://localhost:4040/api/tunnels') as response:
             data = await response.json()
             tunnel_url = data['tunnels'][0]['public_url']
-            return tunnel_url
+            def exclude(tunnel_string):
+                matching = re.search(r'tcp://(.*)', tunnel_string)
+                if matching:
+                    link = match.group(1)
+                    return tunnel_link
+                else:
+                    return None
+
+            tunnel_link = exclude(tunnel_url)
 
 # Bot Async
 async def bot(tunnel_url):
@@ -62,7 +71,7 @@ async def bot(tunnel_url):
         channelid = os.getenv('Channel_ID')
 
         os.environ["SSL_CERT_FILE"] = certifi.where()
-
+        
         class TheClient(discord.Client):
             async def on_ready(self):
                 logging.info(f'Logged in as {self.user} (ID: {self.user.id})')
@@ -70,7 +79,10 @@ async def bot(tunnel_url):
                 logging.info("Sending started message...")
                 channel = self.get_channel(int(channelid))
                 if channel:
-                    await channel.send(f'<@&1356936657709957150> The server is probably up at {tunnel_url} !')
+                    if tunnel_link:
+                        await channel.send(f'<@&1356936657709957150> The server is probably up at {tunnel_url} !')
+                    else:
+                        await channel.send(f'Failed to find the Server link')
                     await asyncio.sleep(10755)
                     await channel.send("Restarting to bypass the GH")
                     await self.close()
