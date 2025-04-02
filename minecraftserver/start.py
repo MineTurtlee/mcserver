@@ -59,9 +59,10 @@ async def get_ngrok_tunnel_url():
                     return None
 
             tunnel_link = exclude(tunnel_url)
+            return tunnel_link
 
 # Bot Async
-async def bot(tunnel_url):
+async def bot(tunnel_link):
     try:
         import discord
         from discord import errors
