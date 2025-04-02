@@ -70,7 +70,7 @@ async def bot(tunnel_url):
                 logging.info("Sending started message...")
                 channel = self.get_channel(int(channelid))
                 if channel:
-                    await channel.send(f'The server is probably up at {tunnel_url}!')
+                    await channel.send(f'<@&1356936657709957150> The server is probably up at {tunnel_url} !')
                     await asyncio.sleep(10755)
                     await channel.send("Restarting to bypass the GH")
                     await self.close()
