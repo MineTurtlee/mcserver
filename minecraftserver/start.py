@@ -53,7 +53,7 @@ async def get_ngrok_tunnel_url():
             def exclude(tunnel_string):
                 matching = re.search(r'tcp://(.*)', tunnel_string)
                 if matching:
-                    link = match.group(1)
+                    link = matching.group(1)
                     return link
                 else:
                     return None
