@@ -13,6 +13,6 @@ jobs:
       - name: Add SSH known hosts
         run: |
           mkdir -p ~/.ssh
-          echo "Host serveo.net\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+          ssh-keyscan -H serveo.net >> ~/.ssh/known_hosts
       - name: just test
         run: ssh -R localhost:7272 mineturtle2.serveo.net & cd ${{ github.workspace }}/minecraftserver && java -Xmx2G -jar server.jar nogui
