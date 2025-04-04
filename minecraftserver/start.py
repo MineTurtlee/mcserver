@@ -29,7 +29,9 @@ async def proxy():
             "ssh", "-i", "~/.ssh/id_rsa", "-o", "StrictHostKeyChecking=no", "-R", "mineturtle2.serveo.net:443:localhost:7272", "serveo.net",
             stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=False
         )
-        await asyncio.sleep(5)  # Give ngrok time to initialize
+        asyncio.create_task(log_output(process.stdout, "Proxy"))
+        asyncio.create_task(log_output(process.stderr, "Proxy Error"))
+        await asyncio.sleep(5)  # Give Serveo (NO LONGER NGROK!) time to initialize
         return process
     except Exception as e:
         logging.error(f"Failed to start proxy process: {e}")
