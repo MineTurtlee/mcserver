@@ -11,13 +11,11 @@ jobs:
           distribution: 'temurin' # See 'Supported distributions' for available options
           java-version: '21'
       - name: Add SSH known hosts
+        env:
+          SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
         run: |
           mkdir -p ~/.ssh
-          ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa -q -N ""
-          echo "Host mineturtle2proxy" >> ~/.ssh/config
-          echo "  HostName serveo.net" >> ~/.ssh/config
-          echo "  User mineturtle2" >> ~/.ssh/config
-          echo "  IdentityFile ~/.ssh/id_rsa" >> ~/.ssh/config
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
           ssh-keyscan -H serveo.net >> ~/.ssh/known_hosts
           chmod 600 ~/.ssh/id_rsa
       - name: just test
