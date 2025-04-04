@@ -84,7 +84,7 @@ async def bot():
                 logging.info("Sending started message...")
                 channel = self.get_channel(int(channelid))
                 if channel:
-                    await channel.send(f'<@&1356936657709957150> The server is probably up at [mineturtle2.serveo.net (port 7272)](https://mineturtle2.serveo.net:7272)!')
+                    await channel.send(f'<@&1356936657709957150> The server is probably up at [mineturtle2.serveo.net](https://mineturtle2.serveo.net)!')
                     await asyncio.sleep(3595)
                     await channel.send("Restarting to bypass the GH")
                     await self.close()
