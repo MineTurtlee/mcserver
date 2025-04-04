@@ -1,39 +1,39 @@
-[00:12:28] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
-[00:12:29] [ServerMain/INFO]: Loaded 1373 recipes
-[00:12:29] [ServerMain/INFO]: Loaded 1484 advancements
-[00:12:30] [Server thread/INFO]: Starting minecraft server version 1.21.5
-[00:12:30] [Server thread/INFO]: Loading properties
-[00:12:30] [Server thread/INFO]: Default game type: SURVIVAL
-[00:12:30] [Server thread/INFO]: Generating keypair
-[00:12:30] [Server thread/INFO]: Starting Minecraft server on *:7272
-[00:12:30] [Server thread/INFO]: Using epoll channel type
-[00:12:30] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
-[00:12:30] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
-[00:12:30] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
-[00:12:30] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
-[00:12:30] [Server thread/INFO]: Preparing level "world"
-[00:12:30] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
-[00:12:33] [Worker-Main-2/INFO]: Preparing spawn area: 0%
-[00:12:33] [Worker-Main-2/INFO]: Preparing spawn area: 0%
-[00:12:33] [Worker-Main-2/INFO]: Preparing spawn area: 0%
-[00:12:33] [Worker-Main-2/INFO]: Preparing spawn area: 0%
-[00:12:33] [Worker-Main-2/INFO]: Preparing spawn area: 0%
-[00:12:33] [Worker-Main-2/INFO]: Preparing spawn area: 0%
-[00:12:33] [Server thread/INFO]: Time elapsed: 2767 ms
-[00:12:33] [Server thread/INFO]: Done (3.035s)! For help, type "help"
-[00:12:33] [Server thread/INFO]: Starting GS4 status listener
-[00:12:33] [Server thread/INFO]: Thread Query Listener started
-[00:12:33] [Query Listener #1/INFO]: Query running on 0.0.0.0:7272
-[00:13:33] [Server thread/INFO]: Server empty for 60 seconds, pausing
-[01:12:27] [Server thread/INFO]: Stopping the server
-[01:12:27] [Server thread/INFO]: Stopping server
-[01:12:27] [Server thread/INFO]: Saving players
-[01:12:27] [Server thread/INFO]: Saving worlds
-[01:12:27] [Server thread/INFO]: Saving chunks for level 'ServerLevel[MP | ADOFAI Team VN]'/minecraft:overworld
-[01:12:27] [Server thread/INFO]: Saving chunks for level 'ServerLevel[MP | ADOFAI Team VN]'/minecraft:the_end
-[01:12:27] [Server thread/INFO]: Saving chunks for level 'ServerLevel[MP | ADOFAI Team VN]'/minecraft:the_nether
-[01:12:27] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
-[01:12:27] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
-[01:12:27] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
-[01:12:27] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved
-[01:12:27] [Server thread/INFO]: Thread Query Listener stopped
+[01:13:26] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[01:13:28] [ServerMain/INFO]: Loaded 1373 recipes
+[01:13:28] [ServerMain/INFO]: Loaded 1484 advancements
+[01:13:28] [Server thread/INFO]: Starting minecraft server version 1.21.5
+[01:13:28] [Server thread/INFO]: Loading properties
+[01:13:28] [Server thread/INFO]: Default game type: SURVIVAL
+[01:13:28] [Server thread/INFO]: Generating keypair
+[01:13:28] [Server thread/INFO]: Starting Minecraft server on *:7272
+[01:13:28] [Server thread/INFO]: Using epoll channel type
+[01:13:28] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[01:13:28] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
+[01:13:28] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[01:13:28] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
+[01:13:28] [Server thread/INFO]: Preparing level "world"
+[01:13:29] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
+[01:13:31] [Worker-Main-2/INFO]: Preparing spawn area: 0%
+[01:13:31] [Worker-Main-2/INFO]: Preparing spawn area: 0%
+[01:13:31] [Worker-Main-2/INFO]: Preparing spawn area: 0%
+[01:13:31] [Worker-Main-2/INFO]: Preparing spawn area: 0%
+[01:13:31] [Worker-Main-2/INFO]: Preparing spawn area: 0%
+[01:13:31] [Worker-Main-1/INFO]: Preparing spawn area: 0%
+[01:13:31] [Server thread/INFO]: Time elapsed: 2698 ms
+[01:13:31] [Server thread/INFO]: Done (3.041s)! For help, type "help"
+[01:13:31] [Server thread/INFO]: Starting GS4 status listener
+[01:13:31] [Server thread/INFO]: Thread Query Listener started
+[01:13:31] [Query Listener #1/INFO]: Query running on 0.0.0.0:7272
+[01:14:31] [Server thread/INFO]: Server empty for 60 seconds, pausing
+[02:13:23] [Server thread/INFO]: Stopping the server
+[02:13:23] [Server thread/INFO]: Stopping server
+[02:13:23] [Server thread/INFO]: Saving players
+[02:13:23] [Server thread/INFO]: Saving worlds
+[02:13:23] [Server thread/INFO]: Saving chunks for level 'ServerLevel[MP | ADOFAI Team VN]'/minecraft:overworld
+[02:13:23] [Server thread/INFO]: Saving chunks for level 'ServerLevel[MP | ADOFAI Team VN]'/minecraft:the_nether
+[02:13:23] [Server thread/INFO]: Saving chunks for level 'ServerLevel[MP | ADOFAI Team VN]'/minecraft:the_end
+[02:13:23] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[02:13:23] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[02:13:23] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[02:13:23] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved
+[02:13:24] [Server thread/INFO]: Thread Query Listener stopped
