@@ -26,7 +26,7 @@ async def server():
 async def proxy():
     try:
         process = await asyncio.create_subprocess_exec(
-            "ssh", "-i", "~/.ssh/id_rsa", "-o", "StrictHostKeyChecking=no", "-R", "mineturtle2.serveo.net:25565:localhost:7272", "serveo.net",
+            "ssh", "-i", "~/.ssh/id_rsa", "-o", "StrictHostKeyChecking=no", "-R", "mineturtle2.serveo.net:7272:localhost:7272", "serveo.net",
             stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=False
         )
         asyncio.create_task(log_output(process.stdout, "Proxy"))
@@ -84,7 +84,7 @@ async def bot():
                 logging.info("Sending started message...")
                 channel = self.get_channel(int(channelid))
                 if channel:
-                    await channel.send(f'<@&1356936657709957150> The server is probably up at [mineturtle2.serveo.net (port 25565)](https://mineturtle2.serveo.net)!')
+                    await channel.send(f'<@&1356936657709957150> The server is probably up at [mineturtle2.serveo.net (port 7272)](https://mineturtle2.serveo.net:7272)!')
                     await asyncio.sleep(3595)
                     await channel.send("Restarting to bypass the GH")
                     await self.close()
