@@ -1,0 +1,138 @@
+{
+  "type": "minecraft:command",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:cobblestone",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 16
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+	      {
+          "type": "minecraft:item",
+          "name": "minecraft:pig_spawn_egg",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:item_name": {
+                  "translate": "obs.item.pig.name",
+                  "fallback": "Order a Pig",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                  "translate": "obs.item.mobs.lore",
+                  "fallback": "-The Trader will arrive with the mob next time they visit",
+                  "color": "gray",
+                  "italic": false
+                }
+                ],
+                "minecraft:custom_data": {
+                  "trader": 1,
+                  "pig": 1
+                }
+              }
+            }
+          ]
+        },
+	    {
+          "type": "minecraft:item",
+          "name": "minecraft:cow_spawn_egg",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:item_name": {
+                  "translate": "obs.item.cow.name",
+                  "fallback": "Order a Cow",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                  "translate": "obs.item.mobs.lore",
+                  "fallback": "-The Trader will arrive with the mob next time they visit",
+                  "color": "gray",
+                  "italic": false
+                }
+                ],
+                "minecraft:custom_data": {
+                  "trader": 1,
+                  "cow": 1
+                }
+              }
+            }
+          ]
+        },
+	    {
+          "type": "minecraft:item",
+          "name": "minecraft:chicken_spawn_egg",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:item_name": {
+                  "translate": "obs.item.chicken.name",
+                  "fallback": "Order a Chicken",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                  "translate": "obs.item.mobs.lore",
+                  "fallback": "-The Trader will arrive with the mob next time they visit",
+                  "color": "gray",
+                  "italic": false
+                }
+                ],
+                "minecraft:custom_data": {
+                  "trader": 1,
+                  "chicken": 1
+                }
+              }
+            }
+          ]
+        },
+	    {
+          "type": "minecraft:item",
+          "name": "minecraft:sheep_spawn_egg",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:item_name": {
+                  "translate": "obs.item.sheep.name",
+                  "fallback": "Order a Sheep",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                  "translate": "obs.item.mobs.lore",
+                  "fallback": "-The Trader will arrive with the mob next time they visit",
+                  "color": "gray",
+                  "italic": false
+                }
+                ],
+                "minecraft:custom_data": {
+                  "trader": 1,
+                  "sheep": 1
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

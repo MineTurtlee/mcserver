@@ -1,0 +1,137 @@
+{
+  "criteria": {
+    "plains": {
+      "trigger": "minecraft:villager_trade",
+      "conditions": {
+        "villager": {
+          "nbt": "{VillagerData:{type:\"minecraft:plains\"}}"
+        },
+        "item": {
+          "items": "minecraft:pig_spawn_egg",
+          "predicates": {
+            "minecraft:custom_data": {
+              "villager": 1,
+              "pig": 1
+            }
+          }
+        }
+      }
+    },
+    "swamp": {
+      "trigger": "minecraft:villager_trade",
+      "conditions": {
+        "villager": {
+          "nbt": "{VillagerData:{type:\"minecraft:swamp\"}}"
+        },
+        "item": {
+          "items": "minecraft:pig_spawn_egg",
+          "predicates": {
+            "minecraft:custom_data": {
+              "villager": 1,
+              "pig": 1
+            }
+          }
+        }
+      }
+    },
+    "taiga": {
+      "trigger": "minecraft:villager_trade",
+      "conditions": {
+        "villager": {
+          "nbt": "{VillagerData:{type:\"minecraft:taiga\"}}"
+        },
+        "item": {
+          "items": "minecraft:pig_spawn_egg",
+          "predicates": {
+            "minecraft:custom_data": {
+              "villager": 1,
+              "pig": 1
+            }
+          }
+        }
+      }
+    },
+    "snowy": {
+      "trigger": "minecraft:villager_trade",
+      "conditions": {
+        "villager": {
+          "nbt": "{VillagerData:{type:\"minecraft:snow\"}}"
+        },
+        "item": {
+          "items": "minecraft:pig_spawn_egg",
+          "predicates": {
+            "minecraft:custom_data": {
+              "villager": 1,
+              "pig": 1
+            }
+          }
+        }
+      }
+    },
+    "desert": {
+      "trigger": "minecraft:villager_trade",
+      "conditions": {
+        "villager": {
+          "nbt": "{VillagerData:{type:\"minecraft:desert\"}}"
+        },
+        "item": {
+          "items": "minecraft:pig_spawn_egg",
+          "predicates": {
+            "minecraft:custom_data": {
+              "villager": 1,
+              "pig": 1
+            }
+          }
+        }
+      }
+    },
+    "jungle": {
+      "trigger": "minecraft:villager_trade",
+      "conditions": {
+        "villager": {
+          "nbt": "{VillagerData:{type:\"minecraft:jungle\"}}"
+        },
+        "item": {
+          "items": "minecraft:pig_spawn_egg",
+          "predicates": {
+            "minecraft:custom_data": {
+              "villager": 1,
+              "pig": 1
+            }
+          }
+        }
+      }
+    },
+    "savanna": {
+      "trigger": "minecraft:villager_trade",
+      "conditions": {
+        "villager": {
+          "nbt": "{VillagerData:{type:\"minecraft:savanna\"}}"
+        },
+        "item": {
+          "items": "minecraft:pig_spawn_egg",
+          "predicates": {
+            "minecraft:custom_data": {
+              "villager": 1,
+              "pig": 1
+            }
+          }
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "plains",
+      "swamp",
+      "taiga",
+      "snowy",
+      "desert",
+      "jungle",
+      "savanna"
+    ]
+  ],
+  "rewards": {
+    "function": "obs:villager_mobs/pig"
+  }
+}

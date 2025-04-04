@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "AA",
+    "AA"
+  ],
+  "key": {
+    "A": "#minecraft:flowers"
+  },
+  "result": {
+    "id": "minecraft:wildflowers",
+    "count": 4
+  }
+}

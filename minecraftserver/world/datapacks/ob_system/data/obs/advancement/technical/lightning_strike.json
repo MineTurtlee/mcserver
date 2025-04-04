@@ -1,0 +1,15 @@
+{
+  "criteria": {
+    "lightning_strike": {
+      "trigger": "minecraft:lightning_strike"
+    }
+  },
+  "requirements": [
+    [
+      "lightning_strike"
+    ]
+  ],
+  "rewards": {
+    "function": "obs:lightning_strike/trigger"
+  }
+}

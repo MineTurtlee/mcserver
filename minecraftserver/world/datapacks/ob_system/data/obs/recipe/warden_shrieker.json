@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    "minecraft:ghast_tear",
+    "minecraft:sculk_shrieker"
+  ],
+  "result": {
+    "id": "minecraft:sculk_shrieker",
+    "components": {
+      "minecraft:block_state": {
+        "can_summon": "true"
+      },
+      "minecraft:item_name": [
+        {
+          "translate": "entity.minecraft.warden",
+          "fallback": "Warden"
+        },
+        " ",
+        {
+          "translate": "block.minecraft.sculk_shrieker",
+          "fallback": "Sculk Shrieker"
+        }
+      ]
+    }
+  }
+}

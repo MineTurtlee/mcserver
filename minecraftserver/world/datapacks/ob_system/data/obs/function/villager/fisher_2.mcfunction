@@ -1,0 +1,9 @@
+
+# Trade 1
+loot replace entity @s weapon.mainhand 2 loot obs:gameplay/trades/fisher_1
+data modify entity @s Offers.Recipes[3].buy set from entity @s equipment.mainhand
+data remove entity @s Offers.Recipes[3].buyB
+data modify entity @s Offers.Recipes[3].sell set from entity @s equipment.offhand
+
+item replace entity @s weapon.mainhand with air
+item replace entity @s weapon.offhand with air

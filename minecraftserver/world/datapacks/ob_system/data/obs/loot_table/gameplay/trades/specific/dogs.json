@@ -1,0 +1,252 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+	    {
+          "type": "minecraft:item",
+          "name": "minecraft:wolf_spawn_egg",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:item_name": {
+                  "translate": "obs.item.wolf_pale.name",
+                  "fallback": "Order a Pale Wolf",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                  "translate": "obs.item.mobs.lore",
+                  "fallback": "-The Trader will arrive with the mob next time they visit",
+                  "color": "gray",
+                  "italic": false
+                }
+                ],
+                "minecraft:custom_data": {
+					"wolf":1
+				}
+              }
+            }
+          ]
+        },
+	    {
+          "type": "minecraft:item",
+          "name": "minecraft:wolf_spawn_egg",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:item_name": {
+                  "translate": "obs.item.wolf_snowy.name",
+                  "fallback": "Order a Snowy Wolf",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                  "translate": "obs.item.mobs.lore",
+                  "fallback": "-The Trader will arrive with the mob next time they visit",
+                  "color": "gray",
+                  "italic": false
+                }
+                ],
+                "minecraft:custom_data": {
+					"wolf":2
+				}
+              }
+            }
+          ]
+        },
+	    {
+          "type": "minecraft:item",
+          "name": "minecraft:wolf_spawn_egg",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:item_name": {
+                  "translate": "obs.item.wolf_woods.name",
+                  "fallback": "Order a Woods Wolf",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                  "translate": "obs.item.mobs.lore",
+                  "fallback": "-The Trader will arrive with the mob next time they visit",
+                  "color": "gray",
+                  "italic": false
+                }
+                ],
+                "minecraft:custom_data": {
+					"wolf":3
+				}
+              }
+            }
+          ]
+        },
+	    {
+          "type": "minecraft:item",
+          "name": "minecraft:wolf_spawn_egg",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:item_name": {
+                  "translate": "obs.item.wolf_black.name",
+                  "fallback": "Order a Black Wolf",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                  "translate": "obs.item.mobs.lore",
+                  "fallback": "-The Trader will arrive with the mob next time they visit",
+                  "color": "gray",
+                  "italic": false
+                }
+                ],
+                "minecraft:custom_data": {
+					"wolf":4
+				}
+              }
+            }
+          ]
+        },
+	    {
+          "type": "minecraft:item",
+          "name": "minecraft:wolf_spawn_egg",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:item_name": {
+                  "translate": "obs.item.wolf_ashen.name",
+                  "fallback": "Order a Ashen Wolf",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                  "translate": "obs.item.mobs.lore",
+                  "fallback": "-The Trader will arrive with the mob next time they visit",
+                  "color": "gray",
+                  "italic": false
+                }
+                ],
+                "minecraft:custom_data": {
+					"wolf":5
+				}
+              }
+            }
+          ]
+        },
+	    {
+          "type": "minecraft:item",
+          "name": "minecraft:wolf_spawn_egg",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:item_name": {
+                  "translate": "obs.item.wolf_chestnut.name",
+                  "fallback": "Order a Chestnut Wolf",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                  "translate": "obs.item.mobs.lore",
+                  "fallback": "-The Trader will arrive with the mob next time they visit",
+                  "color": "gray",
+                  "italic": false
+                }
+                ],
+                "minecraft:custom_data": {
+					"wolf":6
+				}
+              }
+            }
+          ]
+        },
+	    {
+          "type": "minecraft:item",
+          "name": "minecraft:wolf_spawn_egg",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:item_name": {
+                  "translate": "obs.item.wolf_rusty.name",
+                  "fallback": "Order a Rusty Wolf",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                  "translate": "obs.item.mobs.lore",
+                  "fallback": "-The Trader will arrive with the mob next time they visit",
+                  "color": "gray",
+                  "italic": false
+                }
+                ],
+                "minecraft:custom_data": {
+					"wolf":7
+				}
+              }
+            }
+          ]
+        },
+	    {
+          "type": "minecraft:item",
+          "name": "minecraft:wolf_spawn_egg",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:item_name": {
+                  "translate": "obs.item.wolf_spotted.name",
+                  "fallback": "Order a Spotted Wolf",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                  "translate": "obs.item.mobs.lore",
+                  "fallback": "-The Trader will arrive with the mob next time they visit",
+                  "color": "gray",
+                  "italic": false
+                }
+                ],
+                "minecraft:custom_data": {
+					"wolf":8
+				}
+              }
+            }
+          ]
+        },
+	    {
+          "type": "minecraft:item",
+          "name": "minecraft:wolf_spawn_egg",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:item_name": {
+                  "translate": "obs.item.wolf_striped.name",
+                  "fallback": "Order a Striped Wolf",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                  "translate": "obs.item.mobs.lore",
+                  "fallback": "-The Trader will arrive with the mob next time they visit",
+                  "color": "gray",
+                  "italic": false
+                }
+                ],
+                "minecraft:custom_data": {
+					"wolf":9
+				}
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

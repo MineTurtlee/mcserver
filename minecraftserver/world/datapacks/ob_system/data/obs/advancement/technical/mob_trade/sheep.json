@@ -1,0 +1,26 @@
+{
+  "criteria": {
+    "sheep": {
+      "trigger": "minecraft:villager_trade",
+      "conditions": {
+        "item": {
+          "items": "minecraft:sheep_spawn_egg",
+          "predicates": {
+            "minecraft:custom_data": {
+              "villager": 1,
+              "sheep": 1
+            }
+          }
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "sheep"
+    ]
+  ],
+  "rewards": {
+    "function": "obs:villager_mobs/sheep"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "value": "obs:gameplay/trades/mysterious/blocks_2",
+          "weight": 1,
+          "conditions": [
+            {
+              "condition": "minecraft:value_check",
+              "value": {
+                "type": "minecraft:score",
+                "target": {
+                  "type": "minecraft:fixed",
+                  "name": "#cob.phase"
+                },
+                "score": "cob.phase"
+              },
+              "range": {
+                "min": 4
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:loot_table",
+          "value": "obs:gameplay/trades/mysterious/blocks_4",
+          "weight": 1,
+          "conditions": [
+            {
+              "condition": "minecraft:value_check",
+              "value": {
+                "type": "minecraft:score",
+                "target": {
+                  "type": "minecraft:fixed",
+                  "name": "#cob.phase"
+                },
+                "score": "cob.phase"
+              },
+              "range": {
+                "min": 8
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "parent": "obs:ob/root",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:villager_trade",
+      "conditions": {
+        "villager": {
+          "nbt": "{Tags:[\"ob.trader\"]}"
+        },
+        "item": {
+          "items": "minecraft:cow_spawn_egg",
+          "components": {
+            "minecraft:custom_data": {
+				"trader":1,
+				"cow":1
+			}
+          }
+        }
+      }
+    }
+  },
+  "rewards": {
+    "function": "obs:mobs/cow"
+  }
+}

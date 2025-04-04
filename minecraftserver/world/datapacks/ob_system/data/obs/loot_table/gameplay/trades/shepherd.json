@@ -1,0 +1,67 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:emerald",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 21,
+                "max": 35
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+	    {
+          "type": "minecraft:item",
+          "name": "minecraft:wolf_spawn_egg",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:item_name": {
+                  "translate": "obs.item.wolf.name",
+                  "fallback": "Order a Wolf",
+                  "italic": false
+                },
+                "minecraft:custom_data": {
+                  "villager": 1,
+                  "wolf": 1
+                }
+              }
+            }
+          ]
+        },
+	    {
+          "type": "minecraft:item",
+          "name": "minecraft:sheep_spawn_egg",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:item_name": {
+                  "translate": "obs.item.sheep.name",
+                  "fallback": "Order a Sheep",
+                  "italic": false
+                },
+                "minecraft:custom_data": {
+                  "villager": 1,
+                  "sheep": 1
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

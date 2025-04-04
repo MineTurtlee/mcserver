@@ -1,0 +1,30 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "value": "obs:gameplay/trades/mysterious/blocks_3",
+          "weight": 1,
+          "conditions": [
+            {
+              "condition": "minecraft:value_check",
+              "value": {
+                "type": "minecraft:score",
+                "target": {
+                  "type": "minecraft:fixed",
+                  "name": "#cob.phase"
+                },
+                "score": "cob.phase"
+              },
+              "range": {
+                "min": 6
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,307 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:diamond",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 6,
+                "max": 12
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:gold_ingot",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 20,
+                "max": 28
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+	      {
+          "type": "minecraft:item",
+          "name": "minecraft:pig_spawn_egg",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:item_name": {
+                  "translate": "obs.item.pig.name",
+                  "fallback": "Order a Pig",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                  "translate": "obs.item.mobs.lore",
+                  "fallback": "-The Trader will arrive with the mob next time they visit",
+                  "color": "gray",
+                  "italic": false
+                }
+                ]
+              }
+            }
+          ]
+        },
+	    {
+          "type": "minecraft:item",
+          "name": "minecraft:cow_spawn_egg",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:item_name": {
+                  "translate": "obs.item.cow.name",
+                  "fallback": "Order a Cow",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                  "translate": "obs.item.mobs.lore",
+                  "fallback": "-The Trader will arrive with the mob next time they visit",
+                  "color": "gray",
+                  "italic": false
+                }
+                ]
+              }
+            }
+          ]
+        },
+	    {
+          "type": "minecraft:item",
+          "name": "minecraft:chicken_spawn_egg",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:item_name": {
+                  "translate": "obs.item.chicken.name",
+                  "fallback": "Order a Chicken",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                  "translate": "obs.item.mobs.lore",
+                  "fallback": "-The Trader will arrive with the mob next time they visit",
+                  "color": "gray",
+                  "italic": false
+                }
+                ]
+              }
+            }
+          ]
+        },
+	    {
+          "type": "minecraft:item",
+          "name": "minecraft:sheep_spawn_egg",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:item_name": {
+                  "translate": "obs.item.sheep.name",
+                  "fallback": "Order a Sheep",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                  "translate": "obs.item.mobs.lore",
+                  "fallback": "-The Trader will arrive with the mob next time they visit",
+                  "color": "gray",
+                  "italic": false
+                }
+                ]
+              }
+            }
+          ]
+        },
+	    {
+          "type": "minecraft:item",
+          "name": "minecraft:cat_spawn_egg",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:item_name": {
+                  "translate": "obs.item.cat.name",
+                  "fallback": "Order a Cat",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                  "translate": "obs.item.mobs.lore",
+                  "fallback": "-The Trader will arrive with the mob next time they visit",
+                  "color": "gray",
+                  "italic": false
+                }
+                ]
+              }
+            }
+          ]
+        },
+	    {
+          "type": "minecraft:item",
+          "name": "minecraft:wolf_spawn_egg",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:item_name": {
+                  "translate": "obs.item.wolf.name",
+                  "fallback": "Order a Wolf",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                  "translate": "obs.item.mobs.lore",
+                  "fallback": "-The Trader will arrive with the mob next time they visit",
+                  "color": "gray",
+                  "italic": false
+                }
+                ],
+                "minecraft:custom_data": {
+					"wolf":0
+				}
+              }
+            }
+          ]
+        },
+	    {
+          "type": "minecraft:item",
+          "name": "minecraft:goat_spawn_egg",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:item_name": {
+                  "translate": "obs.item.goat.name",
+                  "fallback": "Order a Goat",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                  "translate": "obs.item.mobs.lore",
+                  "fallback": "-The Trader will arrive with the mob next time they visit",
+                  "color": "gray",
+                  "italic": false
+                }
+                ]
+              }
+            }
+          ]
+        },
+	    {
+          "type": "minecraft:item",
+          "name": "minecraft:llama_spawn_egg",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:item_name": {
+                  "translate": "obs.item.llama.name",
+                  "fallback": "Order a Llama",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                  "translate": "obs.item.mobs.lore",
+                  "fallback": "-The Trader will arrive with the mob next time they visit",
+                  "color": "gray",
+                  "italic": false
+                }
+                ]
+              }
+            }
+          ]
+        },
+	    {
+          "type": "minecraft:item",
+          "name": "minecraft:horse_spawn_egg",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:item_name": {
+                  "translate": "obs.item.horse.name",
+                  "fallback": "Order a Horse",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                  "translate": "obs.item.mobs.lore",
+                  "fallback": "-The Trader will arrive with the mob next time they visit",
+                  "color": "gray",
+                  "italic": false
+                }
+                ]
+              }
+            }
+          ]
+        },
+	    {
+          "type": "minecraft:item",
+          "name": "minecraft:donkey_spawn_egg",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:item_name": {
+                  "translate": "obs.item.donkey.name",
+                  "fallback": "Order a Donkey",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                  "translate": "obs.item.mobs.lore",
+                  "fallback": "-The Trader will arrive with the mob next time they visit",
+                  "color": "gray",
+                  "italic": false
+                }
+                ]
+              }
+            }
+          ]
+        },
+	    {
+          "type": "minecraft:item",
+          "name": "minecraft:fox_spawn_egg",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:item_name": {
+                  "translate": "obs.item.fox.name",
+                  "fallback": "Order a Fox",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                  "translate": "obs.item.mobs.lore",
+                  "fallback": "-The Trader will arrive with the mob next time they visit",
+                  "color": "gray",
+                  "italic": false
+                }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

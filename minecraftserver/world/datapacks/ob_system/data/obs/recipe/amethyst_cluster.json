@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "ABA"
+  ],
+  "key": {
+    "A": "minecraft:amethyst_shard",
+    "B": "minecraft:large_amethyst_bud"
+  },
+  "result": {
+    "id": "minecraft:amethyst_cluster",
+    "count": 1
+  }
+}

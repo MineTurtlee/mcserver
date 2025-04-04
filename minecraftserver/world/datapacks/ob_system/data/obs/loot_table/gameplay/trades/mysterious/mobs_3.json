@@ -1,0 +1,110 @@
+{
+  "type": "minecraft:command",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:cobblestone",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 32
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+	    {
+          "type": "minecraft:item",
+          "name": "minecraft:cat_spawn_egg",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:item_name": {
+                  "translate": "obs.item.cat.name",
+                  "fallback": "Order a Cat",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                  "translate": "obs.item.mobs.lore",
+                  "fallback": "-The Trader will arrive with the mob next time they visit",
+                  "color": "gray",
+                  "italic": false
+                }
+                ],
+                "minecraft:custom_data": {
+                  "trader": 1,
+                  "cat": 1
+                }
+              }
+            }
+          ]
+        },
+	    {
+          "type": "minecraft:item",
+          "name": "minecraft:wolf_spawn_egg",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:item_name": {
+                  "translate": "obs.item.wolf.name",
+                  "fallback": "Order a Wolf",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                  "translate": "obs.item.mobs.lore",
+                  "fallback": "-The Trader will arrive with the mob next time they visit",
+                  "color": "gray",
+                  "italic": false
+                }
+                ],
+                "minecraft:custom_data": {
+                  "trader": 1,
+                  "wolf": 0
+                }
+              }
+            }
+          ]
+        },
+	    {
+          "type": "minecraft:item",
+          "name": "minecraft:horse_spawn_egg",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:item_name": {
+                  "translate": "obs.item.horse.name",
+                  "fallback": "Order a Horse",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                  "translate": "obs.item.mobs.lore",
+                  "fallback": "-The Trader will arrive with the mob next time they visit",
+                  "color": "gray",
+                  "italic": false
+                }
+                ],
+                "minecraft:custom_data": {
+                  "trader": 1,
+                  "horse": 1
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

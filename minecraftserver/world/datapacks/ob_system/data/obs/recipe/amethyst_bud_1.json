@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "A A"
+  ],
+  "key": {
+    "A": "minecraft:amethyst_shard"
+  },
+  "result": {
+    "id": "minecraft:small_amethyst_bud",
+    "count": 1
+  }
+}

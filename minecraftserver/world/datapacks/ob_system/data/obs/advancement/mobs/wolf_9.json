@@ -1,0 +1,25 @@
+{
+  "parent": "obs:ob/root",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:villager_trade",
+      "conditions": {
+        "villager": {
+          "nbt": "{Tags:[\"ob.trader\"]}"
+        },
+        "item": {
+          "items": "minecraft:wolf_spawn_egg",
+          "components": {
+            "minecraft:custom_data": {
+				"trader":1,
+				"wolf":9
+			}
+          }
+        }
+      }
+    }
+  },
+  "rewards": {
+    "function": "obs:mobs/wolf_9"
+  }
+}

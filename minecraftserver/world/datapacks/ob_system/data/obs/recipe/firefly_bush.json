@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " A ",
+    "ABA",
+    " A "
+  ],
+  "key": {
+    "A": [
+      "minecraft:glowstone_dust"
+    ],
+    "B": [
+      "minecraft:bush"
+    ]
+  },
+  "result": {
+    "id": "minecraft:firefly_bush"
+  }
+}
