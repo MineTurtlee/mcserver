@@ -14,5 +14,10 @@ jobs:
         run: |
           mkdir -p ~/.ssh
           ssh-keyscan -H serveo.net >> ~/.ssh/known_hosts
+      - name: Add SSH private key
+        run: |
+          ssh-keygen -t rsa -b 4096
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
       - name: just test
         run: ssh -R mineturtle2.serveo.net:80:localhost:7272 serveo.net & cd ${{ github.workspace }}/minecraftserver && java -Xmx2G -jar server.jar nogui
