@@ -42,11 +42,20 @@ jobs:
       run: ngrok config add-authtoken ${{ secrets.NGROK_TOKEN }}
     - name: open frieawlsk
       run: sudo ufw allow 7272/tcp
+    - name: Add SSH known hosts
+      env:
+        SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
+      run: |
+        mkdir -p ~/.ssh
+        echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+        ssh-keyscan -H serveo.net >> ~/.ssh/known_hosts
+        chmod 600 ~/.ssh/id_rsa
     - name: Run script
       env:
         Bot_Token: ${{ secrets.BOT_TOKEN }}
         Channel_ID: ${{ secrets.CHANNEL_ID }}
         SL: ${{ secrets.SERVER_LINK }}
+        SSH_PRIVATE_KEY
       run: |
         cd ${{ GITHUB.WORKSPACE }}/minecraftserver
         pip install discord
