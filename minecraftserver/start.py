@@ -82,10 +82,7 @@ async def bot(tunnel_link):
                 logging.info("Sending started message...")
                 channel = self.get_channel(int(channelid))
                 if channel:
-                    if tunnel_link:
-                        await channel.send(f'<@&1356936657709957150> The server is probably up at https://mineturtle2.serveo.net !')
-                    else:
-                        await channel.send(f'Failed to find the Server link')
+                    await channel.send(f'<@&1356936657709957150> The server is probably up at [mineturtle2.serveo.net](https://mineturtle2.serveo.net)!')
                     await asyncio.sleep(3595)
                     await channel.send("Restarting to bypass the GH")
                     await self.close()
@@ -120,7 +117,6 @@ async def Timer(server_process, proxy_process):
 async def All():
     server_process = await asyncio.create_task(server())
     proxy_process = await asyncio.create_task(proxy())
-    tunnel_url = await get_ngrok_tunnel_url()
     await asyncio.gather(bot(tunnel_url), Timer(server_process, proxy_process))
 
 asyncio.run(All())
