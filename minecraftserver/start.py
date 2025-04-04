@@ -26,7 +26,7 @@ async def server():
 async def proxy():
     try:
         process = await asyncio.create_subprocess_exec(
-            "ssh", "-i", "~/.ssh/id_rsa", "-o", "StrictHostKeyChecking=no", "-R", "mineturtle2.serveo.net:7272:localhost:7272", "serveo.net",
+            "ssh", "-i", "~/.ssh/id_rsa", "-o", "StrictHostKeyChecking=no", "-R", "mineturtle2.serveo.net:localhost:7272", "serveo.net",
             stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=False
         )
         asyncio.create_task(log_output(process.stdout, "Proxy"))
