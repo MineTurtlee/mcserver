@@ -6,5 +6,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Add SSH known hosts
+        run: |
+          mkdir -p ~/.ssh
+          echo "Host serveo.net\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
       - name: just test
-        run: ssh -R localhost:7272 mineturtle2.serveo.net & cd ${{ github.workspace }}/minecraftserver & java -Xmx2G -jar server.jar nogui
+        run: ssh -R localhost:7272 mineturtle2.serveo.net & cd ${{ github.workspace }}/minecraftserver && java -Xmx2G -jar server.jar nogui
