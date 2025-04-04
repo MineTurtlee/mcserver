@@ -109,7 +109,7 @@ async def Timer(server_process, proxy_process):
         server_process.stdin.write(b"stop\n")
         await server_process.stdin.drain()
     # Kill proxy
-    logging.info("Terminating ngrok proxy...")
+    logging.info("Terminating proxy...")
     if proxy_process:
         proxy_process.terminate()
         await proxy_process.wait()
