@@ -64,7 +64,7 @@ async def log_output(stream, prefix):
 #             return tunnel_link
 
 # Bot Async
-async def bot(tunnel_link):
+async def bot():
     try:
         import discord
         from discord import errors
@@ -117,6 +117,6 @@ async def Timer(server_process, proxy_process):
 async def All():
     server_process = await asyncio.create_task(server())
     proxy_process = await asyncio.create_task(proxy())
-    await asyncio.gather(bot(tunnel_url), Timer(server_process, proxy_process))
+    await asyncio.gather(bot(), Timer(server_process, proxy_process))
 
 asyncio.run(All())
