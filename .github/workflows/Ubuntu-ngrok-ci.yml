@@ -5,7 +5,7 @@ name: Ubuntu
 
 on:
   workflow_run:
-     workflows: ["Ubuntu (ngrok)"]
+     workflows: ["UbuntuMain"]
      types:
        - completed
   workflow_dispatch:
