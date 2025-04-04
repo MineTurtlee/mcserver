@@ -26,7 +26,7 @@ async def server():
 async def proxy():
     try:
         process = await asyncio.create_subprocess_exec(
-            "ngrok", "tcp", "7272",
+            "ngrok", "http", "--url=sharply-sought-chipmunk.ngrok-free.app", "7272",
             stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=False
         )
         await asyncio.sleep(5)  # Give ngrok time to initialize
@@ -51,12 +51,16 @@ async def get_ngrok_tunnel_url():
             data = await response.json()
             tunnel_url = data['tunnels'][0]['public_url']
             def exclude(tunnel_string):
-                matching = re.search(r'tcp://(.*)', tunnel_string)
+                matching = re.search(r'https://(.*)', tunnel_string)
+                matching2 = re.search(r'http://(.*)', tunnel_string)
                 if matching:
                     link = matching.group(1)
                     return link
                 else:
                     return None
+                if matching2:
+                    link = matching2.group(1)
+                    return link
 
             tunnel_link = exclude(tunnel_url)
             return tunnel_link
