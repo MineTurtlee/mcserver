@@ -15,8 +15,9 @@ jobs:
           mkdir -p ~/.ssh
           ssh-keyscan -H serveo.net >> ~/.ssh/known_hosts
       - name: Add SSH private key
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         run: |
-          ssh-keygen -t rsa -b 4096
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
       - name: just test
