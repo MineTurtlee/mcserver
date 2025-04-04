@@ -4,10 +4,10 @@
 name: Ubuntu
 
 on:
-  workflow_run:
-     workflows: ["UbuntuMain"]
-     types:
-       - completed
+ # workflow_run:
+  #    workflows: ["UbuntuMain"]
+   #   types:
+    #    - completed
   workflow_dispatch:
 jobs:
   Instance:
