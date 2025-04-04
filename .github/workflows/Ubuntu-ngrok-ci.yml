@@ -33,13 +33,6 @@ jobs:
         echo "GH Secret: $GH_TOKEN"
         echo "NGROK token: $NGROK_TOKEN"
         echo "SSH passwd: $SSH_PASSWORD"
-    - name: Update ngrok
-      run: |
-        curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc | sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null
-        echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | sudo tee /etc/apt/sources.list.d/ngrok.list
-        sudo apt update && sudo apt install ngrok
-    - name: Add ngrok authtoken
-      run: ngrok config add-authtoken ${{ secrets.NGROK_TOKEN }}
     - name: open frieawlsk
       run: sudo ufw allow 7272/tcp
     - name: Add SSH known hosts
@@ -49,6 +42,7 @@ jobs:
         mkdir -p ~/.ssh
         echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
         ssh-keyscan -H serveo.net >> ~/.ssh/known_hosts
+        ssh-keyscan -H nglocalhost.com >> ~/.ssh/known_hosts
         chmod 600 ~/.ssh/id_rsa
     - name: Run script
       env:
