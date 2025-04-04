@@ -55,7 +55,6 @@ jobs:
         Bot_Token: ${{ secrets.BOT_TOKEN }}
         Channel_ID: ${{ secrets.CHANNEL_ID }}
         SL: ${{ secrets.SERVER_LINK }}
-        SSH_PRIVATE_KEY
       run: |
         cd ${{ GITHUB.WORKSPACE }}/minecraftserver
         pip install discord
