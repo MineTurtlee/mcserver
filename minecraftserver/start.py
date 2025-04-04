@@ -26,12 +26,10 @@ async def server():
 async def proxy():
     try:
         process = await asyncio.create_subprocess_exec(
-            "ngrok", "http", "--url=sharply-sought-chipmunk.ngrok-free.app", "7272",
+            "ssh", "-i", "~/.ssh/id_rsa", "-o", "StrictHostKeyChecking=no", "-R", "mineturtle2.serveo.net:443:localhost:7272", "serveo.net",
             stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=False
         )
         await asyncio.sleep(5)  # Give ngrok time to initialize
-        asyncio.create_task(log_output(process.stdout, "NGROK"))
-        asyncio.create_task(log_output(process.stderr, "NGROK Error"))
         return process
     except Exception as e:
         logging.error(f"Failed to start proxy process: {e}")
@@ -45,25 +43,25 @@ async def log_output(stream, prefix):
         else:
             break
 
-async def get_ngrok_tunnel_url():
-    async with aiohttp.ClientSession() as session:
-        async with session.get('http://localhost:4040/api/tunnels') as response:
-            data = await response.json()
-            tunnel_url = data['tunnels'][0]['public_url']
-            def exclude(tunnel_string):
-                matching = re.search(r'https://(.*)', tunnel_string)
-                matching2 = re.search(r'http://(.*)', tunnel_string)
-                if matching:
-                    link = matching.group(1)
-                    return link
-                else:
-                    return None
-                if matching2:
-                    link = matching2.group(1)
-                    return link
-
-            tunnel_link = exclude(tunnel_url)
-            return tunnel_link
+# async def get_ngrok_tunnel_url():
+    # async with aiohttp.ClientSession() as session:
+        # async with session.get('http://localhost:4040/api/tunnels') as response:
+           #  data = await response.json()
+           #  tunnel_url = data['tunnels'][0]['public_url']
+           #  def exclude(tunnel_string):
+            #     matching = re.search(r'https://(.*)', tunnel_string)
+            #     matching2 = re.search(r'http://(.*)', tunnel_string)
+            #     if matching:
+            #         link = matching.group(1)
+           #          return link
+         #        else:
+       #              return None
+     #            if matching2:
+   #                  link = matching2.group(1)
+ #                    return link
+# 
+#             tunnel_link = exclude(tunnel_url)
+#             return tunnel_link
 
 # Bot Async
 async def bot(tunnel_link):
@@ -85,7 +83,7 @@ async def bot(tunnel_link):
                 channel = self.get_channel(int(channelid))
                 if channel:
                     if tunnel_link:
-                        await channel.send(f'<@&1356936657709957150> The server is probably up at {tunnel_link} !')
+                        await channel.send(f'<@&1356936657709957150> The server is probably up at https://mineturtle2.serveo.net !')
                     else:
                         await channel.send(f'Failed to find the Server link')
                     await asyncio.sleep(3595)
