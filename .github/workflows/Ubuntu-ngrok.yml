@@ -33,6 +33,15 @@ jobs:
         echo "GH Secret: $GH_TOKEN"
         echo "NGROK token: $NGROK_TOKEN"
         echo "SSH passwd: $SSH_PASSWORD"
+    - name: Add SSH known hosts
+      env:
+        SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
+      run: |
+        mkdir -p ~/.ssh
+        echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+        ssh-keyscan -H serveo.net >> ~/.ssh/known_hosts
+        ssh-keyscan -H nglocalhost.com >> ~/.ssh/known_hosts
+        chmod 600 ~/.ssh/id_rsa
     - name: open frieawlsk
       run: sudo ufw allow 7272/tcp
     - name: Run script
